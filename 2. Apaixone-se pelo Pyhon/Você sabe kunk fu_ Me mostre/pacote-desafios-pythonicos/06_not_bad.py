@@ -11,8 +11,19 @@ Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 
 def not_bad(s):
     # +++ SUA SOLUÇÃO +++
-    return
+    # print(s.index('not'))
+    if 'not' in s and 'bad' in s:
+        if (s.index('not') < s.index('bad')): 
+            temp = ''
+            for i in range(0, s.index('not')):
+                temp += s[i]
+            
+            temp += 'good'
 
+            for i in range(s.index('bad') + 3, len(s) - 1):
+                temp += s[i]
+            return temp
+    return s
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
@@ -24,10 +35,10 @@ def test(f, in_, expected):
     out = f(in_)
 
     if out == expected:
-        sign = '✅'
+        sign = 'v'
         info = ''
     else:
-        sign = '❌'
+        sign = 'x'
         info = f'e o correto é {expected!r}'
 
     print(f'{sign} {f.__name__}({in_!r}) retornou {out!r} {info}')
